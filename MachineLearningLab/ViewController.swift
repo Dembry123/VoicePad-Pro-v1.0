@@ -16,6 +16,13 @@ class ViewController: UIViewController {
     @IBOutlet weak var ciaoButton: UIButton!
     @IBOutlet weak var microphoneImage: UIImageView!
     
+    
+    struct AudioConstants{
+        static let AUDIO_BUFFER_SIZE = 1024*4
+    }
+    // setup audio model
+    let audio = AudioModel(buffer_size: AudioConstants.AUDIO_BUFFER_SIZE)
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -42,6 +49,8 @@ class ViewController: UIViewController {
         self.ciaoButton.addTarget(self, action: #selector(buttonTouchDown), for: .touchDown)
         self.ciaoButton.addTarget(self, action: #selector(buttonTouchUpInside), for: .touchUpInside)
         
+        
+        
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -56,6 +65,10 @@ class ViewController: UIViewController {
     
     @objc func buttonTouchDown(_ sender: UIButton) {
         // Button is being held down (touch down), change background color to red
+        //set up audio model
+        self.audio.play()
+        self.audio.startMicrophoneProcessing(withFps: 20) // preferred number of FFT calculations per second
+        self.audio.setupAudioPlayer()
         
         print("ON \(sender.titleLabel?.text ?? "")")
     }
@@ -63,6 +76,8 @@ class ViewController: UIViewController {
     @objc func buttonTouchUpInside(_ sender: UIButton) {
         // Button is released (touch up), change background color back to normal
         print("OFF \(sender.titleLabel?.text ?? "")")
+        self.audio.pause()
+        self.audio.printFFT()
     }
     
     @objc func imageTapped(_ sender: UITapGestureRecognizer) {
