@@ -35,12 +35,9 @@
                                     <constraint firstAttribute="width" constant="88" id="kC8-7g-chM"/>
                                 </constraints>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="filled" title="Train Speech" titleAlignment="center">
+                                <buttonConfiguration key="configuration" style="filled" title="Train Eng" titleAlignment="center">
                                     <color key="baseBackgroundColor" red="0.14903630770000001" green="0.40495842999999998" blue="0.1006964412" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 </buttonConfiguration>
-                                <connections>
-                                    <action selector="goodbyeTrain:" destination="BYZ-38-t0r" eventType="touchUpInside" id="HY8-CS-h5v"/>
-                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ST2-ZO-UZQ">
                                 <rect key="frame" x="152.66666666666666" y="208" width="88" height="54"/>
@@ -49,12 +46,9 @@
                                     <constraint firstAttribute="width" constant="88" id="xr1-JT-dJu"/>
                                 </constraints>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="filled" title="Train Speech" titleAlignment="center">
+                                <buttonConfiguration key="configuration" style="filled" title="Train Japn" titleAlignment="center">
                                     <color key="baseBackgroundColor" red="0.14903630770000001" green="0.40495842999999998" blue="0.1006964412" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 </buttonConfiguration>
-                                <connections>
-                                    <action selector="sayonaraTrain:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Jaq-HW-EoU"/>
-                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Htn-dB-YWr">
                                 <rect key="frame" x="283" y="294" width="88" height="54"/>
@@ -63,12 +57,9 @@
                                     <constraint firstAttribute="height" constant="54" id="Ufo-ax-FKq"/>
                                 </constraints>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="filled" title="Train Speech">
+                                <buttonConfiguration key="configuration" style="filled" title="Train Ital">
                                     <color key="baseBackgroundColor" red="0.14903630770000001" green="0.40495842999999998" blue="0.1006964412" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 </buttonConfiguration>
-                                <connections>
-                                    <action selector="ciaoTrain:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Bun-GT-fQs"/>
-                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4Xy-0F-E8h">
                                 <rect key="frame" x="34" y="294" width="88" height="54"/>
@@ -77,12 +68,9 @@
                                     <constraint firstAttribute="height" constant="54" id="JFQ-7x-wMM"/>
                                 </constraints>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="filled" title="Train Speech" titleAlignment="center">
+                                <buttonConfiguration key="configuration" style="filled" title="Train French" titleAlignment="center">
                                     <color key="baseBackgroundColor" red="0.14903630770000001" green="0.40495842999999998" blue="0.1006964412" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 </buttonConfiguration>
-                                <connections>
-                                    <action selector="aurevoirTrain:" destination="BYZ-38-t0r" eventType="touchUpInside" id="tbm-mT-gz4"/>
-                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qdC-eX-rRd">
                                 <rect key="frame" x="283" y="110" width="88" height="54"/>
@@ -91,12 +79,9 @@
                                     <constraint firstAttribute="height" constant="54" id="ytz-xc-XB8"/>
                                 </constraints>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="filled" title="Train Speech" titleAlignment="center">
+                                <buttonConfiguration key="configuration" style="filled" title="Train Span" titleAlignment="center">
                                     <color key="baseBackgroundColor" red="0.14903630770000001" green="0.40495842999999998" blue="0.1006964412" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 </buttonConfiguration>
-                                <connections>
-                                    <action selector="adiosTrain:" destination="BYZ-38-t0r" eventType="touchUpInside" id="OnL-jJ-gCY"/>
-                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Au Revoir" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SOe-nF-rmW">
                                 <rect key="frame" x="37" y="262" width="83" height="24"/>
@@ -118,6 +103,7 @@
                             </label>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="mic.circle.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="6TU-cC-CDF">
                                 <rect key="frame" x="54" y="454" width="285" height="212"/>
+                                <color key="tintColor" systemColor="linkColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="213.33000000000001" id="9aB-xv-eSY"/>
                                     <constraint firstAttribute="width" constant="285" id="sDk-8k-D08"/>
@@ -154,7 +140,12 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="adiosButton" destination="qdC-eX-rRd" id="Hei-CG-75t"/>
+                        <outlet property="aurevoirButton" destination="4Xy-0F-E8h" id="EQ1-Ow-CvU"/>
+                        <outlet property="ciaoButton" destination="Htn-dB-YWr" id="ucP-J3-VPx"/>
                         <outlet property="goodbyeButton" destination="sft-4s-tZX" id="gXA-4W-sXi"/>
+                        <outlet property="microphoneImage" destination="6TU-cC-CDF" id="oPo-I9-fCX"/>
+                        <outlet property="sayonaraButton" destination="ST2-ZO-UZQ" id="kzx-ci-MnJ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -164,6 +155,9 @@
     </scenes>
     <resources>
         <image name="mic.circle.fill" catalog="system" width="128" height="123"/>
+        <systemColor name="linkColor">
+            <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
