@@ -94,6 +94,54 @@ class UpdateModelForDatasetId(BaseHandler):
         # send back the SFrame of the data
         return tc.SFrame(data=data)
 
+class UpdateModels(BaseHandler):
+    def get(self):
+        '''Train a new model (or update) for given dataset ID
+        '''
+        dsid = self.get_int_arg("dsid",default=0)
+
+        data = self.get_features_and_labels_as_SFrame(dsid)
+
+        # fit the model to the data
+        acc = -1
+        best_model = 'unknown'
+        if len(data)>0:
+            
+            model = tc.random_forest_classifier.create(data,target='target',verbose=0)# training
+            yhat = model.predict(data)
+            self.clf = model
+            acc = sum(yhat==data['target'])/float(len(data))
+            # save model for use later, if desired
+            # model.save('../models/turi_model_dsid%d'%(dsid))
+            
+        acc2 = -1
+        if len(data)>0:
+            
+            model = tc.boosted_trees_classifier.create(data,target='target',verbose=0)# training
+            yhat = model.predict(data)
+            self.clf = model
+            acc2 = sum(yhat==data['target'])/float(len(data))
+            # save model for use later, if desired
+            # model.save('../models/turi_model_dsid%d'%(dsid))
+
+        # send back the resubstitution accuracy
+        # if training takes a while, we are blocking tornado!! No!!
+        self.write_json({"Random Forest: ":acc}, {"Boosted Trees: ":acc2})
+
+    def get_features_and_labels_as_SFrame(self, dsid):
+        # create feature vectors from database
+        features=[]
+        labels=[]
+        for a in self.db.labeledinstances.find({"dsid":dsid}): 
+            features.append([float(val) for val in a['feature']])
+            labels.append(a['label'])
+
+        # convert to dictionary for tc
+        data = {'target':labels, 'sequence':np.array(features)}
+
+        # send back the SFrame of the data
+        return tc.SFrame(data=data)
+
 class PredictOneFromDatasetId(BaseHandler):
     def post(self):
         '''Predict the class of a sent feature vector

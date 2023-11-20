@@ -9,7 +9,7 @@ import UIKit
 
 class ViewController: UIViewController, URLSessionDelegate {
     
-    let SERVER_URL = "http://10.8.153.54:8000"
+    let SERVER_URL = "https://10.8.153.54:8000"
     
     // MARK: Class Properties
     lazy var session: URLSession = {
@@ -32,7 +32,9 @@ class ViewController: UIViewController, URLSessionDelegate {
     @IBOutlet weak var aurevoirButton: UIButton!
     @IBOutlet weak var ciaoButton: UIButton!
     @IBOutlet weak var microphoneImage: UIImageView!
-    
+    @IBOutlet weak var trainButton: UIButton!
+    @IBOutlet weak var bothModelPredictions: UILabel!
+    @IBOutlet weak var finalPrediction: UILabel!
     
     struct AudioConstants{
         static let AUDIO_BUFFER_SIZE = 1024*4
@@ -96,8 +98,7 @@ class ViewController: UIViewController, URLSessionDelegate {
         print("OFF \(sender.titleLabel?.text ?? "")")
         self.audio.pause()
         self.audio.printFFT()
-        let audioModel = AudioModel(buffer_size: 4096)
-        sendPostRequest(fftData: audioModel.fftData, languageLabel: "English")
+        sendPostRequest(fftData: self.audio.fftData, languageLabel: sender.titleLabel?.text ?? "")
         
     }
     
@@ -123,7 +124,7 @@ class ViewController: UIViewController, URLSessionDelegate {
         request.httpMethod = "POST"
         request.addValue("application/json", forHTTPHeaderField: "Content-Type")
 
-        let dsid = "your_dsid_value" // Replace with actual dsid value if necessary
+        let dsid = 0 // Replace with actual dsid value if necessary
 
         let postData: [String: Any] = [
             "feature": fftData,
