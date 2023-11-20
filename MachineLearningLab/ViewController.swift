@@ -9,7 +9,7 @@ import UIKit
 
 class ViewController: UIViewController, URLSessionDelegate {
     
-    let SERVER_URL = "http://10.8.144.46:8000"
+    let SERVER_URL = "http://10.8.153.54:8000"
     
     // MARK: Class Properties
     lazy var session: URLSession = {
@@ -66,28 +66,6 @@ class ViewController: UIViewController, URLSessionDelegate {
         self.ciaoButton.addTarget(self, action: #selector(buttonTouchDown), for: .touchDown)
         self.ciaoButton.addTarget(self, action: #selector(buttonTouchUpInside), for: .touchUpInside)
         
-        let baseURL = "\(SERVER_URL)/Handlers"
-
-        if let url = URL(string: baseURL) {
-            var request = URLRequest(url: url)
-            request.httpMethod = "GET"
-
-            let dataTask = URLSession.shared.dataTask(with: request) { (data, response, error) in
-                // Handle the response or error here
-                if let data = data {
-                    if let jsonString = String(data: data, encoding: .utf8) {
-                        print("Raw Response: \(jsonString)")
-                    } else {
-                        print("Unable to convert data to UTF-8 string")
-                    }
-                }
-
-            }
-
-            dataTask.resume() // Start the task
-        } else {
-            print("Invalid URL")
-        }
 
         
     }
@@ -107,6 +85,7 @@ class ViewController: UIViewController, URLSessionDelegate {
         //set up audio model
         self.audio.play()
         self.audio.startMicrophoneProcessing(withFps: 20) // preferred number of FFT calculations per second
+        
         self.audio.setupAudioPlayer()
         
         print("ON \(sender.titleLabel?.text ?? "")")
@@ -117,6 +96,9 @@ class ViewController: UIViewController, URLSessionDelegate {
         print("OFF \(sender.titleLabel?.text ?? "")")
         self.audio.pause()
         self.audio.printFFT()
+        let audioModel = AudioModel(buffer_size: 4096)
+        sendPostRequest(fftData: audioModel.fftData, languageLabel: "English")
+        
     }
     
     @objc func imageTapped(_ sender: UITapGestureRecognizer) {
@@ -127,6 +109,49 @@ class ViewController: UIViewController, URLSessionDelegate {
             // Touch up, change color to blue
             microphoneImage.tintColor = UIColor.link
         }
+    }
+    
+    func sendPostRequest(fftData: [Float], languageLabel: String) {
+        let baseURL = "\(SERVER_URL)/AddDataPoint" // Replace '/upload' with the correct endpoint
+
+        guard let url = URL(string: baseURL) else {
+            print("Invalid URL")
+            return
+        }
+
+        var request = URLRequest(url: url)
+        request.httpMethod = "POST"
+        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+
+        let dsid = "your_dsid_value" // Replace with actual dsid value if necessary
+
+        let postData: [String: Any] = [
+            "feature": fftData,
+            "label": languageLabel,
+            "dsid": dsid
+        ]
+
+        guard let jsonData = try? JSONSerialization.data(withJSONObject: postData, options: []) else {
+            print("Error: Unable to serialize JSON data")
+            return
+        }
+
+        request.httpBody = jsonData
+
+        let dataTask = URLSession.shared.dataTask(with: request) { data, response, error in
+            guard let data = data, error == nil else {
+                print("Error: \(error?.localizedDescription ?? "Unknown error")")
+                return
+            }
+
+            if let jsonString = String(data: data, encoding: .utf8) {
+                print("Response: \(jsonString)")
+            } else {
+                print("Unable to convert data to UTF-8 string")
+            }
+        }
+
+        dataTask.resume() // Start the task
     }
     
     
