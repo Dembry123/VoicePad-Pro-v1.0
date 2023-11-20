@@ -121,16 +121,27 @@ class UpdateModels(BaseHandler):
             acc2 = sum(yhat==data['target'])/float(len(data))
             # save model for use later, if desired
             # model.save('../models/turi_model_dsid%d'%(dsid))
-
-        if(acc1 > acc2):
+        
+        acc3 = -1
+        if len(data)>0:
+            
+            model3 = tc.logistic_classifier.create(data,target='target',verbose=0)# training
+            yhat = model3.predict(data)
+            acc3 = sum(yhat==data['target'])/float(len(data))
+        
+        accList = [acc1, acc2, acc3]
+        maxAcc = max(accList)
+        if maxAcc == acc1:
             self.clf = model1
-        else:
+        elif maxAcc == acc2:
             self.clf = model2
+        else:
+            self.clf = model3
         
 
         # send back the resubstitution accuracy
         # if training takes a while, we are blocking tornado!! No!!
-        self.write_json({"Random Forest: ":acc1, "Boosted Trees: ":acc2})
+        self.write_json({"Random Forest: ":acc1, "Boosted Trees: ":acc2, "Logistic Regression: ":acc3})
 
     def get_features_and_labels_as_SFrame(self, dsid):
         # create feature vectors from database

@@ -17,77 +17,118 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sft-4s-tZX">
-                                <rect key="frame" x="34" y="99" width="94" height="34.333333333333343"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sft-4s-tZX">
+                                <rect key="frame" x="49" y="85" width="95" height="58"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="58" id="0tq-MV-TQC"/>
+                                    <constraint firstAttribute="width" constant="95" id="5Zv-ft-qDZ"/>
+                                </constraints>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="filled" title="GoodBye" titleAlignment="center">
                                     <color key="baseBackgroundColor" red="0.14903630770000001" green="0.40495842999999998" blue="0.1006964412" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 </buttonConfiguration>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ST2-ZO-UZQ">
-                                <rect key="frame" x="141" y="167" width="94.666666666666657" height="73.333333333333314"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ST2-ZO-UZQ">
+                                <rect key="frame" x="149" y="186" width="95" height="58"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="95" id="Jd2-By-4S8"/>
+                                    <constraint firstAttribute="height" constant="58" id="Xc6-9M-GaJ"/>
+                                </constraints>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="filled" title="Sayonara" titleAlignment="center">
                                     <color key="baseBackgroundColor" red="0.14903630770000001" green="0.40495842999999998" blue="0.1006964412" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 </buttonConfiguration>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Htn-dB-YWr">
-                                <rect key="frame" x="264" y="96" width="81" height="37"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Htn-dB-YWr">
+                                <rect key="frame" x="250" y="85" width="95" height="58"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="58" id="e02-ea-FEf"/>
+                                    <constraint firstAttribute="width" constant="95" id="ynj-Sq-Fml"/>
+                                </constraints>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="filled" title="Ciao">
                                     <color key="baseBackgroundColor" red="0.14903630770000001" green="0.40495842999999998" blue="0.1006964412" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 </buttonConfiguration>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4Xy-0F-E8h">
-                                <rect key="frame" x="34" y="282.33333333333331" width="96" height="34.333333333333314"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4Xy-0F-E8h">
+                                <rect key="frame" x="49" y="277" width="95" height="58"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="58" id="Grh-jw-GUk"/>
+                                    <constraint firstAttribute="width" constant="95" id="u9Y-wv-yCi"/>
+                                </constraints>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="filled" title="Au Revoir" titleAlignment="center">
                                     <color key="baseBackgroundColor" red="0.14903630770000001" green="0.40495842999999998" blue="0.1006964412" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 </buttonConfiguration>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5uf-yU-VzF">
-                                <rect key="frame" x="115.66666666666669" y="421.33333333333331" width="162" height="34.333333333333314"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5uf-yU-VzF">
+                                <rect key="frame" x="115.66666666666669" y="393" width="162" height="63"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="63" id="oVw-iO-7UV"/>
+                                    <constraint firstAttribute="width" constant="162" id="xmW-7y-HJr"/>
+                                </constraints>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="filled" title="Train Both Models">
                                     <color key="baseBackgroundColor" systemColor="systemPinkColor"/>
                                 </buttonConfiguration>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Both Model Predictions" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="COg-1d-CLP">
-                                <rect key="frame" x="108.00000000000001" y="534.33333333333326" width="177.33333333333337" height="20.333333333333371"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Both Model Predictions" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="COg-1d-CLP">
+                                <rect key="frame" x="108.00000000000001" y="487" width="177.33333333333337" height="20.333333333333314"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" systemColor="systemCyanColor"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="is4-Yz-4Ay">
-                                <rect key="frame" x="157" y="763.66666666666663" width="79" height="35"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="Predict"/>
-                            </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Final Prediction" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="u0O-TE-4Qn">
-                                <rect key="frame" x="138" y="634.66666666666663" width="117" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Final Prediction" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="u0O-TE-4Qn">
+                                <rect key="frame" x="138" y="570" width="117" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" systemColor="systemTealColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qdC-eX-rRd">
-                                <rect key="frame" x="264" y="276" width="81" height="40"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qdC-eX-rRd">
+                                <rect key="frame" x="250" y="277" width="95" height="58"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="58" id="m8q-R6-6LY"/>
+                                    <constraint firstAttribute="width" constant="95" id="wCo-Sp-yUr"/>
+                                </constraints>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="filled" title="Adios" titleAlignment="center">
                                     <color key="baseBackgroundColor" red="0.14903630770000001" green="0.40495842999999998" blue="0.1006964412" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 </buttonConfiguration>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="is4-Yz-4Ay">
+                                <rect key="frame" x="132.66666666666666" y="638" width="127.99999999999997" height="98"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="98" id="Kzy-he-mNY"/>
+                                    <constraint firstAttribute="width" constant="128" id="vg4-cb-6QW"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" title="Predict" cornerStyle="capsule">
+                                    <fontDescription key="titleFontDescription" style="UICTFontTextStyleTitle2"/>
+                                </buttonConfiguration>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vA1-9T-hit"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="ST2-ZO-UZQ" firstAttribute="top" secondItem="vA1-9T-hit" secondAttribute="top" constant="127" id="1pX-1m-Wd0"/>
+                            <constraint firstItem="5uf-yU-VzF" firstAttribute="centerX" secondItem="vA1-9T-hit" secondAttribute="centerX" id="2Kj-Rw-Soq"/>
+                            <constraint firstItem="sft-4s-tZX" firstAttribute="top" secondItem="vA1-9T-hit" secondAttribute="top" constant="26" id="4i0-vf-m9n"/>
+                            <constraint firstItem="4Xy-0F-E8h" firstAttribute="leading" secondItem="vA1-9T-hit" secondAttribute="leading" constant="49" id="8ci-bC-Djc"/>
+                            <constraint firstItem="vA1-9T-hit" firstAttribute="trailing" secondItem="qdC-eX-rRd" secondAttribute="trailing" constant="48" id="8lJ-Fg-4eW"/>
+                            <constraint firstItem="ST2-ZO-UZQ" firstAttribute="centerX" secondItem="vA1-9T-hit" secondAttribute="centerX" id="IaX-BJ-eod"/>
+                            <constraint firstItem="5uf-yU-VzF" firstAttribute="top" secondItem="4Xy-0F-E8h" secondAttribute="bottom" constant="58" id="Mvk-CK-TbG"/>
+                            <constraint firstItem="u0O-TE-4Qn" firstAttribute="centerX" secondItem="vA1-9T-hit" secondAttribute="centerX" id="P2a-Ny-SRb"/>
+                            <constraint firstItem="qdC-eX-rRd" firstAttribute="top" secondItem="Htn-dB-YWr" secondAttribute="bottom" constant="134" id="P3l-zY-MgE"/>
+                            <constraint firstItem="sft-4s-tZX" firstAttribute="leading" secondItem="vA1-9T-hit" secondAttribute="leading" constant="49" id="RfL-KV-Lk7"/>
+                            <constraint firstItem="4Xy-0F-E8h" firstAttribute="top" secondItem="sft-4s-tZX" secondAttribute="bottom" constant="134" id="ZbS-NT-kUR"/>
+                            <constraint firstItem="COg-1d-CLP" firstAttribute="centerX" secondItem="vA1-9T-hit" secondAttribute="centerX" id="dvn-Wh-ZNU"/>
+                            <constraint firstItem="COg-1d-CLP" firstAttribute="top" secondItem="5uf-yU-VzF" secondAttribute="bottom" constant="31" id="gLn-Pp-BUS"/>
+                            <constraint firstItem="is4-Yz-4Ay" firstAttribute="centerX" secondItem="vA1-9T-hit" secondAttribute="centerX" id="iF7-rY-MuI"/>
+                            <constraint firstItem="is4-Yz-4Ay" firstAttribute="top" secondItem="u0O-TE-4Qn" secondAttribute="bottom" constant="47" id="j50-A0-fQR"/>
+                            <constraint firstItem="Htn-dB-YWr" firstAttribute="top" secondItem="vA1-9T-hit" secondAttribute="top" constant="26" id="jw2-Jc-VZl"/>
+                            <constraint firstItem="vA1-9T-hit" firstAttribute="trailing" secondItem="Htn-dB-YWr" secondAttribute="trailing" constant="48" id="lQK-AP-shE"/>
+                            <constraint firstItem="u0O-TE-4Qn" firstAttribute="top" secondItem="COg-1d-CLP" secondAttribute="bottom" constant="62.670000000000002" id="yFO-N6-hJ4"/>
+                        </constraints>
                     </view>
                     <connections>
                         <outlet property="adiosButton" destination="qdC-eX-rRd" id="Hei-CG-75t"/>
@@ -109,9 +150,6 @@
     <resources>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
-        <systemColor name="systemCyanColor">
-            <color red="0.19607843137254902" green="0.67843137254901964" blue="0.90196078431372551" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemPinkColor">
             <color red="1" green="0.17647058823529413" blue="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

@@ -56,7 +56,7 @@ class ServerModel {
         dataTask.resume() // Start the task
     }
 
-    func sendPredictionRequest(fftData: [Float]){
+    func sendPredictionRequest(fftData: [Float], completion: @escaping (String) -> Void){
         let baseURL = "\(SERVER_URL)/PredictOne" // Replace '/upload' with the correct endpoint
 
         guard let url = URL(string: baseURL) else {
@@ -90,7 +90,7 @@ class ServerModel {
 
             if let jsonString = String(data: data, encoding: .utf8) {
                 print("Response: \(jsonString)")
-                self.predictionLabel = jsonString
+                completion(jsonString)
             } else {
                 print("Unable to convert data to UTF-8 string")
             }
@@ -99,7 +99,35 @@ class ServerModel {
         dataTask.resume() // Start the task
     }
 
-    func trainModels(){
+//    func trainModels(){
+//        let baseURL = "\(SERVER_URL)/UpdateModel" // Append dsid as a query parameter
+//
+//        guard let url = URL(string: baseURL) else {
+//            print("Invalid URL")
+//            return
+//        }
+//
+//        var request = URLRequest(url: url)
+//        request.httpMethod = "GET"
+//
+//        let dataTask = URLSession.shared.dataTask(with: request) { data, response, error in
+//            guard let data = data, error == nil else {
+//                print("Error: \(error?.localizedDescription ?? "Unknown error")")
+//                return
+//            }
+//
+//            if let jsonString = String(data: data, encoding: .utf8) {
+//                print("Response: \(jsonString)")
+//                self.accuracyLabel = jsonString
+//            } else {
+//                print("Unable to convert data to UTF-8 string")
+//            }
+//        }
+//
+//        dataTask.resume() // Start the task
+//    }
+//    
+    func trainModels(completion: @escaping (String) -> Void){
         let baseURL = "\(SERVER_URL)/UpdateModel" // Append dsid as a query parameter
 
         guard let url = URL(string: baseURL) else {
@@ -118,7 +146,7 @@ class ServerModel {
 
             if let jsonString = String(data: data, encoding: .utf8) {
                 print("Response: \(jsonString)")
-                self.accuracyLabel = "\(jsonString)"
+                completion(jsonString)
             } else {
                 print("Unable to convert data to UTF-8 string")
             }
@@ -126,6 +154,5 @@ class ServerModel {
 
         dataTask.resume() // Start the task
     }
-    
     
 }
