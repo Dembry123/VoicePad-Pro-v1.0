@@ -313,9 +313,10 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = QY65HV9A8W;
+				DEVELOPMENT_TEAM = TV795L7XWT;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = MachineLearningLab/Info.plist;
+				INFOPLIST_KEY_NSMicrophoneUsageDescription = "This App requires microphone access.";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -326,7 +327,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = DAD.MachineLearningLab;
+				PRODUCT_BUNDLE_IDENTIFIER = Lab5MASLDAD.MachineLearningLab;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_OBJC_BRIDGING_HEADER = "MachineLearningLab/MachineLearningLab-Bridging-Header.h";
@@ -347,6 +348,7 @@
 				DEVELOPMENT_TEAM = QY65HV9A8W;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = MachineLearningLab/Info.plist;
+				INFOPLIST_KEY_NSMicrophoneUsageDescription = "This App requires microphone access.";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
