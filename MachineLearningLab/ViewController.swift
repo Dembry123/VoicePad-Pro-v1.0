@@ -7,8 +7,25 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, URLSessionDelegate {
     
+    let SERVER_URL = "http://10.8.144.46:8000"
+    
+    // MARK: Class Properties
+    lazy var session: URLSession = {
+        let sessionConfig = URLSessionConfiguration.ephemeral
+        
+        sessionConfig.timeoutIntervalForRequest = 5.0
+        sessionConfig.timeoutIntervalForResource = 8.0
+        sessionConfig.httpMaximumConnectionsPerHost = 1
+        
+        return URLSession(configuration: sessionConfig,
+            delegate: self,
+            delegateQueue:self.operationQueue)
+    }()
+    let operationQueue = OperationQueue()
+
+
     @IBOutlet weak var goodbyeButton: UIButton!
     @IBOutlet weak var adiosButton: UIButton!
     @IBOutlet weak var sayonaraButton: UIButton!
@@ -49,7 +66,29 @@ class ViewController: UIViewController {
         self.ciaoButton.addTarget(self, action: #selector(buttonTouchDown), for: .touchDown)
         self.ciaoButton.addTarget(self, action: #selector(buttonTouchUpInside), for: .touchUpInside)
         
-        
+        let baseURL = "\(SERVER_URL)/Handlers"
+
+        if let url = URL(string: baseURL) {
+            var request = URLRequest(url: url)
+            request.httpMethod = "GET"
+
+            let dataTask = URLSession.shared.dataTask(with: request) { (data, response, error) in
+                // Handle the response or error here
+                if let data = data {
+                    if let jsonString = String(data: data, encoding: .utf8) {
+                        print("Raw Response: \(jsonString)")
+                    } else {
+                        print("Unable to convert data to UTF-8 string")
+                    }
+                }
+
+            }
+
+            dataTask.resume() // Start the task
+        } else {
+            print("Invalid URL")
+        }
+
         
     }
     
