@@ -103,30 +103,34 @@ class UpdateModels(BaseHandler):
         data = self.get_features_and_labels_as_SFrame(dsid)
 
         # fit the model to the data
-        acc = -1
+        acc1 = -1
         best_model = 'unknown'
         if len(data)>0:
             
-            model = tc.random_forest_classifier.create(data,target='target',verbose=0)# training
-            yhat = model.predict(data)
-            self.clf = model
-            acc = sum(yhat==data['target'])/float(len(data))
+            model1 = tc.random_forest_classifier.create(data,target='target',verbose=0)# training
+            yhat = model1.predict(data)
+            acc1 = sum(yhat==data['target'])/float(len(data))
             # save model for use later, if desired
             # model.save('../models/turi_model_dsid%d'%(dsid))
             
         acc2 = -1
         if len(data)>0:
             
-            model = tc.boosted_trees_classifier.create(data,target='target',verbose=0)# training
-            yhat = model.predict(data)
-            self.clf = model
+            model2 = tc.boosted_trees_classifier.create(data,target='target',verbose=0)# training
+            yhat = model2.predict(data)
             acc2 = sum(yhat==data['target'])/float(len(data))
             # save model for use later, if desired
             # model.save('../models/turi_model_dsid%d'%(dsid))
 
+        if(acc1 > acc2):
+            self.clf = model1
+        else:
+            self.clf = model2
+        
+
         # send back the resubstitution accuracy
         # if training takes a while, we are blocking tornado!! No!!
-        self.write_json({"Random Forest: ":acc}, {"Boosted Trees: ":acc2})
+        self.write_json({"Random Forest: ":acc1, "Boosted Trees: ":acc2})
 
     def get_features_and_labels_as_SFrame(self, dsid):
         # create feature vectors from database
@@ -158,7 +162,7 @@ class PredictOneFromDatasetId(BaseHandler):
   
 
         predLabel = self.clf.predict(fvals);
-        self.write_json({"prediction":str(predLabel)})
+        self.write_json(str(predLabel))
 
     def get_features_as_SFrame(self, vals):
         # create feature vectors from array input
