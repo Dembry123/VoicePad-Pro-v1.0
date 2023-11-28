@@ -94,6 +94,69 @@ class UpdateModelForDatasetId(BaseHandler):
         # send back the SFrame of the data
         return tc.SFrame(data=data)
 
+class UpdateModels(BaseHandler):
+    def get(self):
+        '''Train a new model (or update) for given dataset ID
+        '''
+        dsid = self.get_int_arg("dsid",default=0)
+
+        data = self.get_features_and_labels_as_SFrame(dsid)
+
+        # fit the model to the data
+        acc1 = -1
+        best_model = 'unknown'
+        if len(data)>0:
+            
+            model1 = tc.random_forest_classifier.create(data,target='target',verbose=0)# training
+            yhat = model1.predict(data)
+            acc1 = sum(yhat==data['target'])/float(len(data))
+            # save model for use later, if desired
+            # model.save('../models/turi_model_dsid%d'%(dsid))
+            
+        acc2 = -1
+        if len(data)>0:
+            
+            model2 = tc.boosted_trees_classifier.create(data,target='target',verbose=0)# training
+            yhat = model2.predict(data)
+            acc2 = sum(yhat==data['target'])/float(len(data))
+            # save model for use later, if desired
+            # model.save('../models/turi_model_dsid%d'%(dsid))
+        
+        acc3 = -1
+        if len(data)>0:
+            
+            model3 = tc.logistic_classifier.create(data,target='target',verbose=0)# training
+            yhat = model3.predict(data)
+            acc3 = sum(yhat==data['target'])/float(len(data))
+        
+        accList = [acc1, acc2, acc3]
+        maxAcc = max(accList)
+        if maxAcc == acc1:
+            self.clf = model1
+        elif maxAcc == acc2:
+            self.clf = model2
+        else:
+            self.clf = model3
+        
+
+        # send back the resubstitution accuracy
+        # if training takes a while, we are blocking tornado!! No!!
+        self.write_json({"Random Forest: ":acc1, "Boosted Trees: ":acc2, "Logistic Regression: ":acc3})
+
+    def get_features_and_labels_as_SFrame(self, dsid):
+        # create feature vectors from database
+        features=[]
+        labels=[]
+        for a in self.db.labeledinstances.find({"dsid":dsid}): 
+            features.append([float(val) for val in a['feature']])
+            labels.append(a['label'])
+
+        # convert to dictionary for tc
+        data = {'target':labels, 'sequence':np.array(features)}
+
+        # send back the SFrame of the data
+        return tc.SFrame(data=data)
+
 class PredictOneFromDatasetId(BaseHandler):
     def post(self):
         '''Predict the class of a sent feature vector
@@ -110,7 +173,7 @@ class PredictOneFromDatasetId(BaseHandler):
   
 
         predLabel = self.clf.predict(fvals);
-        self.write_json({"prediction":str(predLabel)})
+        self.write_json(str(predLabel))
 
     def get_features_as_SFrame(self, vals):
         # create feature vectors from array input
